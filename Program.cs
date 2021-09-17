@@ -1,15 +1,20 @@
-﻿using CryptoAlertApp.Model;
+﻿using CryptoAlertApp.Controller;
+using CryptoAlertApp.Model;
 using System;
+using System.Collections.Generic;
 
 namespace CryptoAlertApp
 {
      class Program
      {
-          static void Main(string[] args)
-          {
-               UrlReader urlReader = new UrlReader();
-
-               urlReader.GetAllStringInnerHtml("https://blog.coinbase.com/", "//body","/h3");
+          static void Main(string[] args) { 
+               
+               //Init.Run();
+               
+                                  
+               CoinbaseAnalytics coinbaseAnalytics = new CoinbaseAnalytics();
+               coinbaseAnalytics.AlertFilter();
+               
           }
      }
 }

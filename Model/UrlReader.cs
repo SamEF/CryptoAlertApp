@@ -23,6 +23,7 @@ namespace CryptoAlertApp.Model
           }
 
           //
+          // Get the value of an attribute inside of a HTML tag
           // Example:
           // url = www.blog.coinbase.com | node = //a | attribute = href
           public List<string> GetAllStringNodes(string url, string node, string attribute)
@@ -44,8 +45,8 @@ namespace CryptoAlertApp.Model
           //
           // Gets the text between the start and end tags of the object.
           // Example:
-          // url = www.blog.coinbase.com | node = //body | attribute = /h1
-          public void GetAllStringInnerHtml(string url, string node, string tag)
+          // url = www.blog.coinbase.com | node = //body | tag = /h1
+          public List<string> GetAllStringInnerHtml(string url, string node, string tag)
           {
                List<string> response = new List<string>();
                HtmlDocument htmlDoc = new HtmlDocument();
@@ -55,11 +56,10 @@ namespace CryptoAlertApp.Model
 
                foreach (var x in result)
                {
-                    //response.Add(x.InnerText);
-                    Console.WriteLine(x.InnerText);
+                    response.Add(x.InnerText);
                }
 
-               //return response;
+               return response;
           }
      }
 }
